@@ -1,0 +1,316 @@
+.kaalaa_product_wrapper {
+  position: relative;
+  /* padding: 24px; */
+  width: min-content;
+  height: min-content;
+  background: transparent;
+}
+
+.kaalaa_product_image_wrapper {
+  position: relative;
+  background: transparent;
+  width: min-content;
+  height: min-content;
+  overflow: hidden;
+}
+
+.kaalaa_product_image {
+  width: 100% !important;
+  height: auto;
+}
+
+.kaalaa_product_name {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+  color: #000000;
+}
+
+.kaalaa_product_desc {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  opacity: 0.2;
+}
+
+.kaalaa_product_button {
+  transition: 0.5s all ease-in-out;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 15px 32px;
+  gap: 10px;
+  height: 48px;
+  width: 100%;
+  margin-top: 32px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.kaalaa_product_button:hover {
+  cursor: pointer;
+}
+
+.kaalaa_timer_container {
+  transition: 0.5s;
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  gap: 8px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 8px;
+  top: 8px;
+  background: linear-gradient(270deg, #5200ff 0%, #8f00ff 100%);
+  box-shadow: 0px 0px 8px rgba(97, 0, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  color: white;
+}
+
+.kaalaa_timer_container:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    linear-gradient(270deg, #8000ff 0%, #6100ff 100%);
+}
+
+.kaalaa_timer_container_w {
+  transition: 0.5s all ease-in-out;
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  gap: 8px;
+  position: absolute;
+  width: max-content !important;
+  height: 40px;
+  right: 8px;
+  top: 8px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.kaalaa_timer {
+  height: 5px;
+  width: 0px;
+  left: 12px;
+  top: 7px;
+  border-radius: 0px;
+}
+
+.kaalaa_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: max-content;
+  padding: 5px 2px;
+  font-size: 13px;
+  z-index: 2;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.kaalaa_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kaalaa_imgIcon {
+  width: 17px;
+  height: 17px;
+  margin-right: 3px;
+}
+
+.kaalaa_downloadQR {
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  transition: 0.5s;
+  margin: 20px;
+}
+
+.kaalaa_downloadQR:hover {
+  background-color: darkblue;
+  cursor: pointer;
+}
+
+.kaalaa_modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  justify-content: center;
+  z-index: 9999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.kaalaa_modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4%;
+  height: min-content;
+  width: min-content;
+  max-width: 400px;
+  max-height: 462px;
+  background: white;
+  backdrop-filter: blur(16px);
+  border-radius: 32px;
+}
+
+.kaalaa_modal-status-container{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}
+
+.kaalaa_modal-close {
+  position: absolute;
+  right: 24.1px;
+  top: 24.1px;
+  cursor: pointer;
+}
+
+.kaalaa_modal-title {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  margin: 30px 0;
+}
+
+.kaalaa_modal-desc {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+.kaalaa_modal-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+  width: 232px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  justify-content: center;
+  margin-top: 8px;
+  background: linear-gradient(270deg, #5200ff 0%, #8f00ff 100%);
+  border-radius: 24px;
+  transition: 0.5s;
+  outline: none;
+}
+
+.kaalaa_modal-button:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    linear-gradient(270deg, #8f00ff 0%, #6100ff 100%);
+}
+
+.kaalaa_modal-claim-input {
+  padding: 8px 16px;
+  gap: 8px;
+  width: 232px;
+  height: 40px;
+  border-radius: 24px;
+  border: none;
+  background-color: #e0e0e0;
+  font-size: 14px;
+  outline: none;
+  font-size: medium;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+#kaalaa_QRContainer{
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.kaalaa_zoom-in-out-box {
+  width: 64px;
+  height: 64px;
+  animation: zoom-in-zoom-out 0.7s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.7, 0.7);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@media (max-width: 768px) {
+  .kaalaa_product_wrapper {
+    width: 100%;
+  }
+
+  .kaalaa_modal-content {
+    width: 80%;
+  }
+}
