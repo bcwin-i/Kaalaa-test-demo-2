@@ -1,7 +1,7 @@
 console.log("KĀĀlĀĀ script initiated");
 
-const url = ["https://kaalaa-app.herokuapp.com/", "http://localhost:5050/"];
-const baseURL = url[0];
+const kaalaa_url = ["https://kaalaa-app.herokuapp.com/", "http://localhost:5050/"];
+const baseURL = kaalaa_url[0];
 const auth = {
   username: "a2FhbGFhX2FjY2VzcyB1c2VybmFtZQ==",
   password: "a2FhbGFhX2FjY2VzcyBwYXNzd29yZA==",
@@ -172,7 +172,7 @@ function createWrapper(img) {
   img.data.replaceWith(htmlObject);
 }
 
-function startTimer() {
+function kaalaa_startTimer() {
   setInterval(async () => {
     await images.forEach((img) => {
       const id = img.index;
@@ -394,7 +394,7 @@ document.onreadystatechange = async () => {
     });
     if (req.status && req.found === false) {
       getAllImages();
-      startTimer();
+      kaalaa_startTimer();
     }
   }
 };
