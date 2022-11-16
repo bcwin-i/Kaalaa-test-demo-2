@@ -242,7 +242,7 @@ function startTimer() {
             // });
           }
         } else {
-          createWrapper(img);
+          if (images[existImages].found !== true) createWrapper(img);
         }
       } else {
         if (isMobile) {
@@ -387,14 +387,14 @@ document.onreadystatechange = async () => {
       createDownload();
     }
 
-    // const req = await request("reward/review", {
-    //   userId: getCookie("Kaalaa"),
-    //   itemId: domain,
-    // });
-    // if (req.status && req.found === false) {
+    const req = await request("reward/review", {
+      userId: getCookie("Kaalaa"),
+      itemId: domain,
+    });
+    if (req.status && req.found === false) {
       getAllImages();
       startTimer();
-    // }
+    }
   }
 };
 
