@@ -26,7 +26,7 @@ const moveTime = `<svg xmlns:svg="http://www.w3.org/2000/svg"
 xmlns="http://www.w3.org/2000/svg" 
 xmlns:xlink="http://www.w3.org/1999/xlink"
 version="1.0" width="64px" height="64px" 
-viewBox="0 0 128 128" xml:space="preserve" class="zoom-in-out-box">
+viewBox="0 0 128 128" xml:space="preserve" class="kaalaa_zoom-in-out-box">
 <rect x="0" y="0" width="100%" height="100%" fill="rgba(0,0,0,0)"/>
 <g>
 <path d="M63.88 0A63.88 63.88 0 1 1 0 63.88 63.88 63.88 0 0 1 63.88 0zm0 11.88a52 52 0 1 1-52 52 52 52 0 0 1 52-52zm0 46.2a5.8 5.8 0 1 1-5.8 5.8 5.8 5.8 0 0 1 5.8-5.8z" fill-rule="evenodd" fill="#FFFFFF"/>
@@ -242,7 +242,7 @@ function startTimer() {
             // });
           }
         } else {
-          if (images[existImages].found !== true) createWrapper(img);
+          createWrapper(img);
         }
       } else {
         if (isMobile) {
@@ -387,14 +387,14 @@ document.onreadystatechange = async () => {
       createDownload();
     }
 
-    const req = await request("reward/review", {
-      userId: getCookie("Kaalaa"),
-      itemId: domain,
-    });
-    if (req.status && req.found === false) {
+    // const req = await request("reward/review", {
+    //   userId: getCookie("Kaalaa"),
+    //   itemId: domain,
+    // });
+    // if (req.status && req.found === false) {
       getAllImages();
       startTimer();
-    }
+    // }
   }
 };
 
