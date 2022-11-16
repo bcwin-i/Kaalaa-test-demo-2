@@ -336,6 +336,7 @@ async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
   });
+  console.log("Images: ", images.length)
 
   if (globalClaim) {
     const timers = document.getElementsByClassName("kaalaa_timer_container");
