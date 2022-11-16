@@ -11,7 +11,7 @@ const domain = window.location.hostname;
 let loadingView = false;
 let globalClaim = null;
 
-const isMobile =
+const kaalaa_mobile =
   navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i);
 let images = [];
 let activeImages = [];
@@ -188,7 +188,7 @@ function startTimer() {
 
       if (view && existImages !== -1) {
         let currImg = [...images];
-        if (!isMobile) {
+        if (!kaalaa_mobile) {
           if (active !== -1) {
             timerHandler();
           }
@@ -213,7 +213,7 @@ function startTimer() {
             const claimed = timer.dataset.claimed;
             button ? (button.style.display = "flex") : null;
             // timer.style.width = "max-content";
-            if (isMobile) {
+            if (kaalaa_mobile) {
               timer.style.opacity = 1;
             } else {
               if (active) timer.style.opacity = 1;
@@ -245,7 +245,7 @@ function startTimer() {
           if (images[existImages].found !== true) createWrapper(img);
         }
       } else {
-        if (isMobile) {
+        if (kaalaa_mobile) {
           if (timer) timer.style.opacity = 0;
         }
       }
@@ -260,7 +260,7 @@ function formatTimerToEarn(img) {
 
     const claimed = timer.dataset.claimed;
     // timer.style.width = "max-content";
-    if (isMobile) {
+    if (kaalaa_mobile) {
       timer.style.opacity = 1;
     } else {
       if (active) timer.style.opacity = 1;
@@ -353,7 +353,7 @@ async function getAllImages() {
 }
 
 document.onreadystatechange = async () => {
-  // console.log("Platform Mobile: ", isMobile);
+  // console.log("Platform Mobile: ", kaalaa_mobile);
   if (document.readyState === "complete") {
     // getAllImages();
     if ("serviceWorker" in navigator) {
@@ -684,7 +684,7 @@ function onHover(e, idPlain) {
     imagesExist !== -1 &&
     idPlain &&
     idPlain !== "" &&
-    !isMobile &&
+    !kaalaa_mobile &&
     active
   ) {
     activeImages.push(idPlain);
