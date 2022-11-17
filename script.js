@@ -1,6 +1,9 @@
 console.log("KĀĀlĀĀ script initiated");
 
-const kaalaa_url = ["https://kaalaa-app.herokuapp.com/", "http://localhost:5050/"];
+const kaalaa_url = [
+  "https://kaalaa-app.herokuapp.com/",
+  "http://localhost:5050/",
+];
 const baseURL = kaalaa_url[0];
 const auth = {
   username: "a2FhbGFhX2FjY2VzcyB1c2VybmFtZQ==",
@@ -125,8 +128,8 @@ function createWrapper(img) {
   let htmlObject = document.createElement("div");
   htmlObject.className = "kaalaa_product_wrapper";
   // htmlObject.id = id + "_mainwrapper";
-  htmlObject.style.setProperty('height', img.data.height+"px", 'important')
-  htmlObject.style.setProperty('width', img.data.width+"px", 'important')
+  htmlObject.style.setProperty("height", img.data.height + "px", "important");
+  htmlObject.style.setProperty("width", img.data.width + "px", "important");
   htmlObject.setAttribute("data-timer", img.data.src + "-" + img.index);
 
   let imageWrapper = document.createElement("div");
@@ -145,10 +148,10 @@ function createWrapper(img) {
   let image = new Image(img.data.width, img.data.height);
   image.src = img.data.src;
   image.alt = img.data.alt;
-  image.style.width = img.data.width
-  image.style.height = img.data.height
-  image.style.setProperty('height', img.data.height+"px", 'important')
-  image.style.setProperty('width', img.data.width+"px", 'important')
+  image.style.width = img.data.width;
+  image.style.height = img.data.height;
+  image.style.setProperty("height", img.data.height + "px", "important");
+  image.style.setProperty("width", img.data.width + "px", "important");
   image.id = id + "_mainwrapper";
   image.style.cursor = "pointer";
   image.setAttribute("data-timer", img.data.src + "-" + img.index);
@@ -342,7 +345,7 @@ async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
   });
-  console.log("Images: ", images.length)
+  console.log("Images: ", images.length);
 
   if (globalClaim) {
     const timers = document.getElementsByClassName("kaalaa_timer_container");
@@ -416,7 +419,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
   addBtn.addEventListener("click", (e) => {
     // hide our user interface that shows our A2HS button
-    
+
     // Show the prompt
     deferredPrompt.prompt();
     // Wait for the user to respond to the prompt
@@ -634,6 +637,7 @@ document.addEventListener("click", async (e) => {
 
   if (itemId && rewardClaim) {
     e.preventDefault();
+    e.stopPropagation();
     current_reward = { itemId, amount: 1 };
     modalDisplay();
     return;
@@ -641,7 +645,7 @@ document.addEventListener("click", async (e) => {
 
   if (id === "claim_reward_button") {
     e.preventDefault();
-    e.stopPropagation()
+    e.stopPropagation();
     const modalStatus = getElementById("modalStatusContainer");
     if (modalStatus) modalStatus.innerHTML = request_loader;
 
@@ -654,7 +658,9 @@ document.addEventListener("click", async (e) => {
     if (timer && req.status) {
       if (req.status) {
         globalClaim = true;
-        const timers = document.getElementsByClassName("kaalaa_timer_container");
+        const timers = document.getElementsByClassName(
+          "kaalaa_timer_container"
+        );
         if (timers.length > 0) {
           setTimeout(() => {
             for (var i = 0; i < timers.length; i++) {
