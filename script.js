@@ -584,6 +584,20 @@ document.addEventListener("mouseout", (e) => {
   }
 });
 
+const modal = document.querySelector(".kaalaa_timer_container")
+
+modal.addEventListener("click", async (e) => {
+  const itemId = e.target.dataset.timer;
+  const rewardClaim = e.target.dataset.reward;
+
+  if (itemId && rewardClaim) {
+    e.preventDefault();
+    current_reward = { itemId, amount: 1 };
+    modalDisplay();
+    return;
+  }
+})
+
 document.addEventListener("click", async (e) => {
   e.stopPropagation();
   e.preventDefault();
@@ -637,12 +651,12 @@ document.addEventListener("click", async (e) => {
     return;
   }
 
-  if (itemId && rewardClaim) {
-    e.preventDefault();
-    current_reward = { itemId, amount: 1 };
-    modalDisplay();
-    return;
-  }
+  // if (itemId && rewardClaim) {
+  //   e.preventDefault();
+  //   current_reward = { itemId, amount: 1 };
+  //   modalDisplay();
+  //   return;
+  // }
 
   if (id === "claim_reward_button") {
     e.preventDefault();
