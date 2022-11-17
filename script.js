@@ -641,6 +641,7 @@ document.addEventListener("click", async (e) => {
 
   if (id === "claim_reward_button") {
     e.preventDefault();
+    e.stopPropagation()
     const modalStatus = getElementById("modalStatusContainer");
     if (modalStatus) modalStatus.innerHTML = request_loader;
 
