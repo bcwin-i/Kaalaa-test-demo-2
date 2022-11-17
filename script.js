@@ -125,6 +125,8 @@ function createWrapper(img) {
   let htmlObject = document.createElement("div");
   htmlObject.className = "kaalaa_product_wrapper";
   // htmlObject.id = id + "_mainwrapper";
+  htmlObject.style.setProperty('height', img.data.height+"px", 'important')
+  htmlObject.style.setProperty('width', img.data.width+"px", 'important')
   htmlObject.setAttribute("data-timer", img.data.src + "-" + img.index);
 
   let imageWrapper = document.createElement("div");
@@ -143,6 +145,10 @@ function createWrapper(img) {
   let image = new Image(img.data.width, img.data.height);
   image.src = img.data.src;
   image.alt = img.data.alt;
+  image.style.width = img.data.width
+  image.style.height = img.data.height
+  image.style.setProperty('height', img.data.height+"px", 'important')
+  image.style.setProperty('width', img.data.width+"px", 'important')
   image.id = id + "_mainwrapper";
   image.style.cursor = "pointer";
   image.setAttribute("data-timer", img.data.src + "-" + img.index);
