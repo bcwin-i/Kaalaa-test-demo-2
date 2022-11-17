@@ -585,6 +585,7 @@ document.addEventListener("mouseout", (e) => {
 });
 
 document.addEventListener("click", async (e) => {
+  e.stopPropagation();
   const id = e.target.id;
 
   const itemId = e.target.dataset.timer;
@@ -637,7 +638,6 @@ document.addEventListener("click", async (e) => {
 
   if (itemId && rewardClaim) {
     e.preventDefault();
-    e.stopPropagation();
     current_reward = { itemId, amount: 1 };
     modalDisplay();
     return;
