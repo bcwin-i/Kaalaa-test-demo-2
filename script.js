@@ -586,6 +586,7 @@ document.addEventListener("mouseout", (e) => {
 
 document.addEventListener("click", async (e) => {
   e.stopPropagation();
+  e.preventDefault();
   const id = e.target.id;
 
   const itemId = e.target.dataset.timer;
