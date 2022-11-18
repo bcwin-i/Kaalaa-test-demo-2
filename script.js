@@ -587,6 +587,7 @@ document.addEventListener("mouseout", (e) => {
 var timer_containers = document.getElementsByClassName("kaalaa_timer_container");
 
 document.addEventListener("click", async (e) => {
+  e.preventDefault();
   const id = e.target.id;
   const itemId = e.target.dataset.timer;
   const rewardClaim = e.target.dataset.reward;
@@ -637,11 +638,8 @@ document.addEventListener("click", async (e) => {
   }
 
   if (itemId && rewardClaim) {
-    e.preventDefault();
     current_reward = { itemId, amount: 1 };
-    await modalDisplay();
-    e.stopPropagation();
-    alert("Seen")
+    modalDisplay();
     return;
   }
 
