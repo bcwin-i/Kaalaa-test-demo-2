@@ -594,6 +594,8 @@ document.addEventListener("click", async (e) => {
   const itemId = this.dataset.timer;
   const rewardClaim = this.dataset.reward;
 
+  alert(e.target.id)
+
   if (!e.target.href || e.target.href === "") e.preventDefault();
 
   if (id === "Kaalaa_auto_link") {
