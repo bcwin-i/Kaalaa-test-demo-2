@@ -454,7 +454,7 @@ async function generateQRCode(data) {
 
 async function createDownload() {
   const newdiv = document.createElement("div");
-  newdiv.id = "QRContainer";
+  newdiv.id = "kaalaa_QRContainer";
   newdiv.style.padding = "20px";
   document.body.appendChild(newdiv);
 
