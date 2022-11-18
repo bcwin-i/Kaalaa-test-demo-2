@@ -345,10 +345,10 @@ var userSelection = document.getElementsByClassName("kaalaa_timer_container");
 
 for (var i = 0; i < userSelection.length; i++) {
   (function (index) {
-    userSelection[index].addEventListener("click", function (e) {
+    userSelection[index].addEventListener("click", function () {
       alert("Timer container")
-      const itemId = e.target.dataset.timer;
-      const rewardClaim = e.target.dataset.reward;
+      const itemId = this.dataset.timer;
+      const rewardClaim = this.target.dataset.reward;
       if (itemId && rewardClaim) {
         current_reward = { itemId, amount: 1 };
         modalDisplay();
@@ -363,6 +363,7 @@ async function getAllImages() {
     addImage(i);
   });
   userSelection = document.getElementsByClassName("kaalaa_timer_container");
+  console.log("Selections: ", userSelection)
 
   if (globalClaim) {
     const timers = document.getElementsByClassName("kaalaa_timer_container");
