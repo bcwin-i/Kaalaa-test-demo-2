@@ -345,7 +345,7 @@ var userSelection = document.getElementsByClassName("kaalaa_timer_container");
 
 for (var i = 0; i < userSelection.length; i++) {
   (function (index) {
-    userSelection[index].addEventListener("click", function () {
+    userSelection[index].addEventListener("click", function (e) {
       alert("Timer container")
       const itemId = e.target.dataset.timer;
       const rewardClaim = e.target.dataset.reward;
