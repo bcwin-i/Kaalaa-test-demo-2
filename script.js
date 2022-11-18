@@ -345,26 +345,6 @@ async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
   });
-  for (var i = 0; i < timer_containerslength; i++) {
-    timer_containers[i].addEventListener(
-      "click",
-      () => {
-        e.preventDefault();
-        e.stopPropagation();
-        const itemId = this.dataset.timer;
-        const rewardClaim = this.dataset.reward;
-        console.log("Earn click", { itemId, rewardClaim });
-        alert("Earn");
-        if (itemId && rewardClaim) {
-          current_reward = { itemId, amount: 1 };
-          modalDisplay();
-          return;
-        }
-      },
-      false
-    );
-  }
-  // console.log("Images: ", images.length);
 
   if (globalClaim) {
     const timers = document.getElementsByClassName("kaalaa_timer_container");
@@ -612,6 +592,15 @@ document.addEventListener("click", async (e) => {
   if (e.target.className === "kaalaa_timer_container") {
     e.preventDefault();
     e.stopPropagation();
+    const itemId = this.dataset.timer;
+    const rewardClaim = this.dataset.reward;
+    console.log("Earn click", { itemId, rewardClaim });
+    alert("Earn");
+    if (itemId && rewardClaim) {
+      current_reward = { itemId, amount: 1 };
+      modalDisplay();
+      return;
+    }
   }
   const id = e.target.id;
 
