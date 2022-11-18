@@ -345,6 +345,9 @@ async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
   });
+  for (var i = 0; i < timer_containerslength; i++) {
+    timer_containers[i].addEventListener("click", timerClickHandler, false);
+  }
   // console.log("Images: ", images.length);
 
   if (globalClaim) {
@@ -602,9 +605,6 @@ var timerClickHandler = function () {
   }
 };
 
-for (var i = 0; i < timer_containerslength; i++) {
-  timer_containers[i].addEventListener("click", timerClickHandler, false);
-}
 
 document.addEventListener("click", async (e) => {
   // console.log("Class: ", e.target.className)
