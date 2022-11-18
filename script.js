@@ -454,7 +454,7 @@ async function generateQRCode(data) {
 
 async function createDownload() {
   const newdiv = document.createElement("div");
-  newdiv.id = "QRContainer";
+  newdiv.id = "kaalaa_QRContainer";
   newdiv.style.padding = "20px";
   document.body.appendChild(newdiv);
 
@@ -475,7 +475,7 @@ async function createDownload() {
   Installlink.className = "kaalaa_modal-button";
   Installlink.id = "install";
   Installlink.innerText = "Add to homescreen";
-
+  
   await generateQRCode(getCookie("Kaalaa"));
   document.body.appendChild(newdiv);
 
