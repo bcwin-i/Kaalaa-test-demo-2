@@ -341,6 +341,23 @@ function addImage(img) {
   }
 }
 
+var userSelection = document.getElementsByClassName("kaalaa_timer_container");
+
+for (var i = 0; i < userSelection.length; i++) {
+  (function (index) {
+    userSelection[index].addEventListener("click", function () {
+      alert("Timer container")
+      const itemId = e.target.dataset.timer;
+      const rewardClaim = e.target.dataset.reward;
+      if (itemId && rewardClaim) {
+        current_reward = { itemId, amount: 1 };
+        modalDisplay();
+        return;
+      }
+    });
+  })(i);
+}
+
 async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
@@ -587,22 +604,6 @@ document.addEventListener("mouseout", (e) => {
 var timer_containers = document.getElementsByClassName(
   "kaalaa_timer_container"
 );
-
-var userSelection = document.getElementsByClassName("kaalaa_timer_container");
-
-for (var i = 0; i < userSelection.length; i++) {
-  (function (index) {
-    userSelection[index].addEventListener("click", function () {
-      const itemId = e.target.dataset.timer;
-      const rewardClaim = e.target.dataset.reward;
-      if (itemId && rewardClaim) {
-        current_reward = { itemId, amount: 1 };
-        modalDisplay();
-        return;
-      }
-    });
-  })(i);
-}
 
 document.addEventListener("click", async (e) => {
   e.preventDefault();
