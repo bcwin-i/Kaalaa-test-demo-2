@@ -585,8 +585,12 @@ document.addEventListener("mouseout", (e) => {
 });
 
 document.addEventListener("click", async (e) => {
+  console.log("Class: ", e.target.className)
+  if (e.target.className === "kaalaa_timer_container") {
+    e.preventDefault();
+    e.stopPropagation();
+  }
   const id = e.target.id;
-
   const itemId = e.target.dataset.timer;
   const rewardClaim = e.target.dataset.reward;
 
