@@ -341,31 +341,11 @@ function addImage(img) {
   }
 }
 
-let userSelection = document.getElementsByClassName("kaalaa_timer_container");
-
-
 async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
   });
-  userSelection = document.getElementsByClassName("kaalaa_timer_container");
-  for (var i = 0; i < userSelection.length; i++) {
-    ((index)=> {
-      userSelection[index].addEventListener("click", (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        alert("Timer container");
-        const itemId = e.target.dataset.timer;
-        const rewardClaim = e.target.dataset.reward;
-        if (itemId && rewardClaim) {
-          current_reward = { itemId, amount: 1 };
-          modalDisplay();
-          return;
-        }
-      });
-    })(i);
-  }
-  console.log("Selections: ", userSelection);
+  // console.log("Images: ", images.length);
 
   if (globalClaim) {
     const timers = document.getElementsByClassName("kaalaa_timer_container");
@@ -604,13 +584,11 @@ document.addEventListener("mouseout", (e) => {
   }
 });
 
-var timer_containers = document.getElementsByClassName(
-  "kaalaa_timer_container"
-);
-
 document.addEventListener("click", async (e) => {
   e.preventDefault();
   const id = e.target.id;
+  const itemId = e.target.dataset.timer;
+  const rewardClaim = e.target.dataset.reward;
 
   if (!e.target.href || e.target.href === "") e.preventDefault();
 
@@ -654,6 +632,12 @@ document.addEventListener("click", async (e) => {
     } else {
       error.innerHTML = "Token value can't be empty.";
     }
+    return;
+  }
+
+  if (itemId && rewardClaim) {
+    current_reward = { itemId, amount: 1 };
+    modalDisplay();
     return;
   }
 
