@@ -641,6 +641,7 @@ document.addEventListener("click", async (e) => {
     e.stopPropagation();
     current_reward = { itemId, amount: 1 };
     modalDisplay();
+    alert("Seen")
     return;
   }
 
