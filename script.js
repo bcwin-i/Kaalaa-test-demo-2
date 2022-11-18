@@ -584,6 +584,24 @@ document.addEventListener("mouseout", (e) => {
   }
 });
 
+var timer_containers = document.getElementsByClassName("kaalaa_timer_container");
+
+var tierClickHandler = function() {
+  const itemId = this.dataset.timer;
+  const rewardClaim = this.dataset.reward;
+  if (itemId && rewardClaim) {
+    e.preventDefault();
+    e.stopPropagation();
+    current_reward = { itemId, amount: 1 };
+    modalDisplay();
+    return;
+  }
+};
+
+for (var i = 0; i < timer_containerslength; i++) {
+  timer_containers[i].addEventListener('click', myFunction, false);
+}
+
 document.addEventListener("click", async (e) => {
   console.log("Class: ", e.target.className)
   if (e.target.className === "kaalaa_timer_container") {
@@ -591,8 +609,6 @@ document.addEventListener("click", async (e) => {
     e.stopPropagation();
   }
   const id = e.target.id;
-  const itemId = e.target.dataset.timer;
-  const rewardClaim = e.target.dataset.reward;
 
   if (!e.target.href || e.target.href === "") e.preventDefault();
 
@@ -639,13 +655,13 @@ document.addEventListener("click", async (e) => {
     return;
   }
 
-  if (itemId && rewardClaim) {
-    e.preventDefault();
-    e.stopPropagation();
-    current_reward = { itemId, amount: 1 };
-    modalDisplay();
-    return;
-  }
+  // if (itemId && rewardClaim) {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   current_reward = { itemId, amount: 1 };
+  //   modalDisplay();
+  //   return;
+  // }
 
   if (id === "claim_reward_button") {
     e.preventDefault();
