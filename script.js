@@ -352,6 +352,7 @@ async function getAllImages() {
   for (var i = 0; i < userSelection.length; i++) {
     ((index)=> {
       userSelection[index].addEventListener("click", (e) => {
+        e.preventDefault()
         alert("Timer container");
         const itemId = e.target.dataset.timer;
         const rewardClaim = e.target.dataset.reward;
