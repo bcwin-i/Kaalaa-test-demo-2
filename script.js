@@ -588,8 +588,8 @@ var timer_containers = document.getElementsByClassName("kaalaa_timer_container")
 
 document.addEventListener("click", async (e) => {
   const id = e.target.id;
-  const itemId = this.dataset.timer;
-  const rewardClaim = this.dataset.reward;
+  const itemId = e.target.dataset.timer;
+  const rewardClaim = e.target.dataset.reward;
 
   if (!e.target.href || e.target.href === "") e.preventDefault();
 
