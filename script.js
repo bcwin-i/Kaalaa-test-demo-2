@@ -591,13 +591,15 @@ for (var i = 0; i < timer_containerslength; i++) {
 
 document.addEventListener("click", async (e) => {
   const id = e.target.id;
-  const itemId = this.dataset.timer;
-  const rewardClaim = this.dataset.reward;
+
+  const itemId = e.target.dataset.timer;
+  const rewardClaim = e.target.dataset.reward;
 
   if (!e.target.href || e.target.href === "") e.preventDefault();
 
   if (id === "Kaalaa_auto_link") {
     linkModal();
+    // modalDisplay()
     return;
   }
 
@@ -640,8 +642,6 @@ document.addEventListener("click", async (e) => {
 
   if (itemId && rewardClaim) {
     e.preventDefault();
-    e.stopPropagation();
-    alert("Show")
     current_reward = { itemId, amount: 1 };
     modalDisplay();
     return;
@@ -649,7 +649,6 @@ document.addEventListener("click", async (e) => {
 
   if (id === "claim_reward_button") {
     e.preventDefault();
-    e.stopPropagation();
     const modalStatus = getElementById("modalStatusContainer");
     if (modalStatus) modalStatus.innerHTML = request_loader;
 
@@ -662,9 +661,7 @@ document.addEventListener("click", async (e) => {
     if (timer && req.status) {
       if (req.status) {
         globalClaim = true;
-        const timers = document.getElementsByClassName(
-          "kaalaa_timer_container"
-        );
+        const timers = document.getElementsByClassName("timer_container");
         if (timers.length > 0) {
           setTimeout(() => {
             for (var i = 0; i < timers.length; i++) {
