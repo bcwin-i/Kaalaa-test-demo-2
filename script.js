@@ -346,7 +346,23 @@ async function getAllImages() {
     addImage(i);
   });
   for (var i = 0; i < timer_containerslength; i++) {
-    timer_containers[i].addEventListener("click", timerClickHandler, false);
+    timer_containers[i].addEventListener(
+      "click",
+      () => {
+        e.preventDefault();
+        e.stopPropagation();
+        const itemId = this.dataset.timer;
+        const rewardClaim = this.dataset.reward;
+        console.log("Earn click", { itemId, rewardClaim });
+        alert("Earn");
+        if (itemId && rewardClaim) {
+          current_reward = { itemId, amount: 1 };
+          modalDisplay();
+          return;
+        }
+      },
+      false
+    );
   }
   // console.log("Images: ", images.length);
 
@@ -478,7 +494,7 @@ async function createDownload() {
   Installlink.className = "kaalaa_modal-button";
   Installlink.id = "install";
   Installlink.innerText = "Add to homescreen";
-  
+
   await generateQRCode(getCookie("Kaalaa"));
   document.body.appendChild(newdiv);
 
@@ -590,21 +606,6 @@ document.addEventListener("mouseout", (e) => {
 var timer_containers = document.getElementsByClassName(
   "kaalaa_timer_container"
 );
-
-var timerClickHandler = function () {
-  e.preventDefault();
-  e.stopPropagation();
-  const itemId = this.dataset.timer;
-  const rewardClaim = this.dataset.reward;
-  console.log("Earn click", {itemId, rewardClaim})
-  alert("Earn")
-  if (itemId && rewardClaim) {
-    current_reward = { itemId, amount: 1 };
-    modalDisplay();
-    return;
-  }
-};
-
 
 document.addEventListener("click", async (e) => {
   // console.log("Class: ", e.target.className)
