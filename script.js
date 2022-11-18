@@ -345,6 +345,7 @@ async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
   });
+  // console.log("Images: ", images.length);
 
   if (globalClaim) {
     const timers = document.getElementsByClassName("kaalaa_timer_container");
@@ -453,7 +454,7 @@ async function generateQRCode(data) {
 
 async function createDownload() {
   const newdiv = document.createElement("div");
-  newdiv.id = "kaalaa_QRContainer";
+  newdiv.id = "QRContainer";
   newdiv.style.padding = "20px";
   document.body.appendChild(newdiv);
 
@@ -583,30 +584,20 @@ document.addEventListener("mouseout", (e) => {
   }
 });
 
-var timer_containers = document.getElementsByClassName(
-  "kaalaa_timer_container"
-);
+
+for (var i = 0; i < timer_containerslength; i++) {
+  timer_containers[i].addEventListener('click', myFunction, false);
+}
 
 document.addEventListener("click", async (e) => {
-  // console.log("Class: ", e.target.className)
+  const id = e.target.id;
   const itemId = this.dataset.timer;
   const rewardClaim = this.dataset.reward;
-  if (itemId && rewardClaim) {
-    e.preventDefault();
-    e.stopPropagation();
-    alert("Earn");
-
-    current_reward = { itemId, amount: 1 };
-    modalDisplay();
-    return;
-  }
-  const id = e.target.id;
 
   if (!e.target.href || e.target.href === "") e.preventDefault();
 
   if (id === "Kaalaa_auto_link") {
     linkModal();
-    // modalDisplay()
     return;
   }
 
@@ -647,13 +638,14 @@ document.addEventListener("click", async (e) => {
     return;
   }
 
-  // if (itemId && rewardClaim) {
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   current_reward = { itemId, amount: 1 };
-  //   modalDisplay();
-  //   return;
-  // }
+  if (itemId && rewardClaim) {
+    e.preventDefault();
+    e.stopPropagation();
+    alert("Show")
+    current_reward = { itemId, amount: 1 };
+    modalDisplay();
+    return;
+  }
 
   if (id === "claim_reward_button") {
     e.preventDefault();
