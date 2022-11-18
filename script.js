@@ -341,28 +341,29 @@ function addImage(img) {
   }
 }
 
-let timerSelections = document.querySelectorAll(".kaalaa_timer_container");
+let userSelection = document.getElementsByClassName("kaalaa_timer_container");
 
-boxes.forEach((box) => {
-  box.addEventListener("click", function handleClick(e) {
-    e.preventDefault();
-    alert("Timer container");
-    const itemId = e.target.dataset.timer;
-    const rewardClaim = e.target.target.dataset.reward;
-    if (itemId && rewardClaim) {
-      current_reward = { itemId, amount: 1 };
-      modalDisplay();
-      return;
-    }
-  });
-});
 
 async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
   });
-  timerSelections = document.querySelectorAll(".kaalaa_timer_container");
-  console.log("Selections: ", timerSelections);
+  userSelection = document.getElementsByClassName("kaalaa_timer_container");
+  for (var i = 0; i < userSelection.length; i++) {
+    ((index)=> {
+      userSelection[index].addEventListener("click", (e) => {
+        alert("Timer container");
+        const itemId = e.target.dataset.timer;
+        const rewardClaim = e.target.dataset.reward;
+        if (itemId && rewardClaim) {
+          current_reward = { itemId, amount: 1 };
+          modalDisplay();
+          return;
+        }
+      });
+    })(i);
+  }
+  console.log("Selections: ", userSelection);
 
   if (globalClaim) {
     const timers = document.getElementsByClassName("kaalaa_timer_container");
