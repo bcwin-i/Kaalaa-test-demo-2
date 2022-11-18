@@ -636,6 +636,7 @@ document.addEventListener("click", async (e) => {
 
   if (itemId && rewardClaim) {
     e.preventDefault();
+    e.stopPropagation()
     current_reward = { itemId, amount: 1 };
     modalDisplay();
     return;
