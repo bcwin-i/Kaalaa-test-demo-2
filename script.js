@@ -588,7 +588,7 @@ var timer_containers = document.getElementsByClassName(
   "kaalaa_timer_container"
 );
 
-var tierClickHandler = function () {
+var timerClickHandler = function () {
   e.preventDefault();
   e.stopPropagation();
   const itemId = this.dataset.timer;
@@ -603,7 +603,7 @@ var tierClickHandler = function () {
 };
 
 for (var i = 0; i < timer_containerslength; i++) {
-  timer_containers[i].addEventListener("click", myFunction, false);
+  timer_containers[i].addEventListener("click", timerClickHandler, false);
 }
 
 document.addEventListener("click", async (e) => {
