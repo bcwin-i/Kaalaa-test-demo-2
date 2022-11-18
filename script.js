@@ -454,7 +454,7 @@ async function generateQRCode(data) {
 
 async function createDownload() {
   const newdiv = document.createElement("div");
-  newdiv.id = "QRContainer";
+  newdiv.id = "kaalaa_QRContainer";
   newdiv.style.padding = "20px";
   document.body.appendChild(newdiv);
 
@@ -593,8 +593,6 @@ document.addEventListener("click", async (e) => {
   const id = e.target.id;
   const itemId = this.dataset.timer;
   const rewardClaim = this.dataset.reward;
-
-  alert(e.target.id)
 
   if (!e.target.href || e.target.href === "") e.preventDefault();
 
