@@ -589,18 +589,16 @@ var timer_containers = document.getElementsByClassName(
 
 document.addEventListener("click", async (e) => {
   // console.log("Class: ", e.target.className)
-  if (e.target.className === "kaalaa_timer_container") {
+  const itemId = this.dataset.timer;
+  const rewardClaim = this.dataset.reward;
+  if (itemId && rewardClaim) {
     e.preventDefault();
     e.stopPropagation();
-    const itemId = this.dataset.timer;
-    const rewardClaim = this.dataset.reward;
-    console.log("Earn click", { itemId, rewardClaim });
     alert("Earn");
-    if (itemId && rewardClaim) {
-      current_reward = { itemId, amount: 1 };
-      modalDisplay();
-      return;
-    }
+
+    current_reward = { itemId, amount: 1 };
+    modalDisplay();
+    return;
   }
   const id = e.target.id;
 
