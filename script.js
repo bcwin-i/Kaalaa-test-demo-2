@@ -345,7 +345,7 @@ async function getAllImages() {
   await Array.prototype.map.call(document.images, function (i) {
     addImage(i);
   });
-  console.log("Images: ", images.length);
+  // console.log("Images: ", images.length);
 
   if (globalClaim) {
     const timers = document.getElementsByClassName("kaalaa_timer_container");
@@ -413,7 +413,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   // Stash the event so it can be triggered later.
   var deferredPrompt = e;
-  console.log("Ready to install");
+  // console.log("Ready to install");
   // Update UI to notify the user they can add to home screen
   const addBtn = document.getElementById("install");
 
@@ -545,7 +545,7 @@ document.addEventListener("mouseover", (e) => {
   const id = e.target.id;
   const idPlain = splitGetIndex(id);
 
-  console.log(id, idPlain);
+  // console.log(id, idPlain);
 
   if (e.target.className === "kaalaa_timer_container") {
     e.target.style.opacity = 1;
@@ -553,9 +553,9 @@ document.addEventListener("mouseover", (e) => {
 
   if (id.includes("_")) {
     const started = images.findIndex((e) => e.index?.toString() === idPlain);
-    console.log("Started: ", started);
+    // console.log("Started: ", started);
     if (started !== -1 && images[started].timer < 10) {
-      console.log("Skid: ", true);
+      // console.log("Skid: ", true);
       onHover(e, idPlain);
       if (images[started].timer === 0) {
         formatTimerToEarn(images[started]);
@@ -584,14 +584,18 @@ document.addEventListener("mouseout", (e) => {
   }
 });
 
-var timer_containers = document.getElementsByClassName("kaalaa_timer_container");
+var timer_containers = document.getElementsByClassName(
+  "kaalaa_timer_container"
+);
 
-var tierClickHandler = function() {
+var tierClickHandler = function () {
+  e.preventDefault();
+  e.stopPropagation();
   const itemId = this.dataset.timer;
   const rewardClaim = this.dataset.reward;
+  console.log("Earn click", {itemId, rewardClaim})
+  alert("Earn")
   if (itemId && rewardClaim) {
-    e.preventDefault();
-    e.stopPropagation();
     current_reward = { itemId, amount: 1 };
     modalDisplay();
     return;
@@ -599,11 +603,11 @@ var tierClickHandler = function() {
 };
 
 for (var i = 0; i < timer_containerslength; i++) {
-  timer_containers[i].addEventListener('click', myFunction, false);
+  timer_containers[i].addEventListener("click", myFunction, false);
 }
 
 document.addEventListener("click", async (e) => {
-  console.log("Class: ", e.target.className)
+  // console.log("Class: ", e.target.className)
   if (e.target.className === "kaalaa_timer_container") {
     e.preventDefault();
     e.stopPropagation();
@@ -710,7 +714,7 @@ function onHover(e, idPlain) {
   const imagesExist = images.findIndex((e) => e?.index?.toString() === idPlain);
   const activeExist = activeImages.findIndex((e) => e === idPlain);
 
-  console.log("Claim: ", timer_container.dataset.claimed);
+  // console.log("Claim: ", timer_container.dataset.claimed);
 
   if (
     activeExist === -1 &&
